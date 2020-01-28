@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input id="inp" type="text" name="nome">
+        <button onClick="adicionar()" id="btn">Adicionar</button>
+
+    </div>
+
+    <script>
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        var ul = document.createElement('ul');
+        var container = document.getElementById('app');
+        var inputElement = document.getElementById('inp')
+        var btnElement = document.getElementById('btn')
+
+        btnElement.onclick = function adicionar() {
+            var li = document.createElement('li');
+            var text = document.createTextNode(inputElement.value);
+            li.appendChild(text);
+            ul.appendChild(li);
+
+            container.removeChild(inputElement);
+            container.removeChild(btnElement);
+        }
+
+        for (var x of nomes) {
+            var li = document.createElement('li');
+            const { nome } = x;
+            var text = document.createTextNode(x);
+            console.log(text);
+            li.appendChild(text);
+            ul.appendChild(li);
+        }
+        app.appendChild(ul);
+    </script>
+</body>
+
+</html>
